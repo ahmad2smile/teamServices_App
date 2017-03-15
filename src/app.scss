@@ -1,0 +1,12 @@
+$bodyBgColor:#252830;
+$bodyColor: #fff;
+
+$roboto-font-path: "~materialize-css/fonts/roboto/";
+
+@import "~materialize-css/sass/materialize.scss";
+@import "~materialize-css/sass/components/_navbar.scss";
+
+body{
+    background-color: $bodyBgColor;
+    color: $bodyColor;
+}
