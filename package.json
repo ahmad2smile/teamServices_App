@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "api" : "json-server --watch api/api.json",
+    "test": "ava --tap | tap-nyan",
+    "api": "json-server --watch api/api.json",
     "dev": "SET NODE_ENV=devlopment&&webpack-dev-server",
     "production": "npm run clear && SET NODE_ENV=production&&webpack -p",
     "clear": "rimraf ./dist/*"

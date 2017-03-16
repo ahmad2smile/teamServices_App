@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class TRow extends Component {
-    render() {
+    render() {        
         return (
             <tr>
                 <td>{this.props.buildName}</td>

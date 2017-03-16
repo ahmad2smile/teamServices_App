@@ -1,4 +1,4 @@
-$bodyBgColor:#252830;
+$bodyBgColor:#eee;
 $bodyColor: #fff;
 
 $roboto-font-path: "~materialize-css/fonts/roboto/";
@@ -9,4 +9,35 @@ $roboto-font-path: "~materialize-css/fonts/roboto/";
 body{
     background-color: $bodyBgColor;
     color: $bodyColor;
+}
+
+table{
+    margin: 40px;
+    padding: 40px;
+    background-color: #fff;
+    border-collapse: separate;
+    border-spacing: 0px 10px;
+    th{
+        background-color: #fff;
+    }
+    td,th{
+        border-radius: 0;
+    }
+    tr{
+        line-height: 13px;
+        color: #222;
+        background-color: #eee;
+        td{
+            border: 3px solid blue;
+            border-left-width: 0;
+            border-right-width: 0;
+        }
+        td:first-child{
+            border-left-width: 3px;
+        }
+        td:last-child{
+            border-right-width: 3px;
+        }
+    }
+    
 }
