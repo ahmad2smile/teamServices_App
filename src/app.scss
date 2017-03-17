@@ -11,12 +11,15 @@ body{
     color: $bodyColor;
 }
 
+$tr-borderSize : 2px;
+
 table{
     margin: 40px;
     padding: 40px;
     background-color: #fff;
     border-collapse: separate;
     border-spacing: 0px 10px;
+
     th{
         background-color: #fff;
     }
@@ -28,16 +31,28 @@ table{
         color: #222;
         background-color: #eee;
         td{
-            border: 3px solid blue;
+            border: $tr-borderSize solid blue;
             border-left-width: 0;
             border-right-width: 0;
         }
         td:first-child{
-            border-left-width: 3px;
+            border-left-width: $tr-borderSize;
         }
         td:last-child{
-            border-right-width: 3px;
+            border-right-width: $tr-borderSize;
         }
+        .colSpan{
+            display: table-row;
+            overflow-wrap: break-word;
+            
+            padding: 2px;
+            column-span: all;
+            background-color: red;
+        }
+    }
+    .newtable{
+        margin: 0;
+        padding: 0;
     }
     
 }

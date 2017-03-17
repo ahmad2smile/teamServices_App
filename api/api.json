@@ -1,10 +1,10 @@
 {
   "posts": [
-    { "buildName" : "Tenrox", "ownerName" : "jtuck", "timeStarted" : "4/18/2015", "currentState" : "Pending", "metrics" : 1 , "build" : 0 , "unitTests" : 1, "functionalTests" : 1 },
-    { "buildName" : "Tenrox", "ownerName" : "samy", "timeStarted" : "4/18/2015", "currentState" : "Pending", "metrics" : 1 , "build" : 0 , "unitTests" : 1, "functionalTests" : 1 },
-    { "buildName" : "Tenrox", "ownerName" : "jammy", "timeStarted" : "4/18/2015", "currentState" : "Pending", "metrics" : 1 , "build" : 0 , "unitTests" : 1, "functionalTests" : 1 },
-    { "buildName" : "Tenrox", "ownerName" : "roomy", "timeStarted" : "4/18/2015", "currentState" : "Pending", "metrics" : 1 , "build" : 0 , "unitTests" : 1, "functionalTests" : 1 },
-    { "buildName" : "Tenrox", "ownerName" : "zag", "timeStarted" : "4/18/2015", "currentState" : "Pending", "metrics" : 1 , "build" : 0 , "unitTests" : 1, "functionalTests" : 1 },
-    { "buildName" : "Tenrox", "ownerName" : "tag", "timeStarted" : "4/18/2015", "currentState" : "Pending", "metrics" : 1 , "build" : 0 , "unitTests" : 1, "functionalTests" : 1 }
+    { "buildName" : "Tenrox", "ownerName" : "jtuck", "timeStarted" : "4/18/2015", "currentState" : "Pending", "metrics" : 0 , "build" : 0 , "unitTests" : 0, "functionalTests" : 0 },
+    { "buildName" : "Tenrox", "ownerName" : "samy", "timeStarted" : "4/18/2015", "currentState" : "Running", "metrics" : 0.5 , "build" : 0 , "unitTests" : 0, "functionalTests" : 0 },
+    { "buildName" : "Tenrox", "ownerName" : "jammy", "timeStarted" : "4/18/2015", "currentState" : "Rejected", "metrics" : -1 , "build" : 1 , "unitTests" : 1, "functionalTests" : 1 },
+    { "buildName" : "Tenrox", "ownerName" : "roomy", "timeStarted" : "4/18/2015", "currentState" : "Complete", "metrics" : 1 , "build" : 0 , "unitTests" : 1, "functionalTests" : 1 },
+    { "buildName" : "Tenrox", "ownerName" : "zag", "timeStarted" : "4/18/2015", "currentState" : "Rejected", "metrics" : -1 , "build" : 0 , "unitTests" : 0, "functionalTests" : 0 },
+    { "buildName" : "Tenrox", "ownerName" : "tag", "timeStarted" : "4/18/2015", "currentState" : "Accepted", "metrics" : 1 , "build" : 1 , "unitTests" : 1, "functionalTests" : 1 }
   ]
 }

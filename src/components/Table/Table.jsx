@@ -11,6 +11,10 @@ import { fetchBuildStatus } from "../../actions/buildActons.js";
     };
 })
 class Table extends Component {
+    constructor(){
+        super();
+    }
+
     componentWillMount(){
         this.props.dispatch(fetchBuildStatus());
     }
@@ -20,12 +24,11 @@ class Table extends Component {
         let TRows;
         if(this.props.fetched){
            TRows = this.props.buildData[0]
-                .map((propData,i)=><TRow key={i} {...propData}/>);
+                .map((propData,i) => <TRow key={i} {...propData}/>);
         }
         
-        // const build = ["Tenrox","jtuck","4/18/2015","Pending",1 ,0 , 1, 1];
         return (
-            <table className="centered">
+            <table className="centered teamTable">
                 <thead>
                     <tr>
                         <th>ChangeList / Build</th>
