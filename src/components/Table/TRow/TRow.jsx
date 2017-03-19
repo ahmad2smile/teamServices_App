@@ -1,71 +1,109 @@
 import React, { Component } from 'react';
 
+import InfoBox  from "./InfoBox/InfoBox.jsx";
+
 class TRow extends Component {
-    constructor(){
+    constructor() {
         super();
-        this.state = { 
-            toggle : false,
-            rowHeight : 47
+        this.state = {
+            toggle: 0,
+            rowHeight: 42,
+            boxDisplay: false
         };
     }
 
+    rowInfo(row, anyToggle){
+        !anyToggle ? row.style.height = this.state.rowHeight + "px" :
+            row.style.height = (this.state.rowHeight * 6.3) + "px";
+        row.dataset.togglestate = anyToggle;
+        this.setState(prevState => ({ toggle: anyToggle }));
+    }
+
     rowInfoToggle(e) {
-        let el = e.target.parentNode;
-        el.style.height = this.state.toggle ? this.state.rowHeight + "px" : 
-                                el.style.height = (this.state.rowHeight * 4) + "px";
-        this.setState(prevState => ({toggle: !prevState.toggle}));
+        let elRow = e.target.parentNode;
+        let allRows = document.getElementsByTagName("ul");
+        let anyToggle = 0;
+        let toggledEle = elRow; //placeholder for same type
+
+        [...allRows].forEach(function(element) {
+            let eleState = parseInt(element.dataset.togglestate);
+            if(eleState){
+                anyToggle = 1;
+                toggledEle = element;
+            }
+        }, this);
+        if(anyToggle){
+            var infoBoxes = toggledEle.getElementsByClassName("infoBox");
+            [...infoBoxes].forEach(function(element) {
+                element.style.display = "none";
+                console.log(element);
+            }, this);
+            this.rowInfo(toggledEle, 0);
+        }
+        else this.rowInfo(elRow, 1);
     }
 
     render() {
 
-        let tdStyle = {
-            borderColor: "blue"
-        }
-
         let trStyle = {
-            cursor: "pointer"
+            cursor: "pointer",
+            borderColor: "gray",
+            backgroundColor: "rgba(0, 0, 0, 0.05)"
         }
 
 
         switch (this.props.currentState) {
             case "Pending":
-                tdStyle.borderColor = "gray";
                 trStyle.cursor = "not-allowed";
                 break;
 
             case "Running":
-                tdStyle.borderColor = "blue";
+                trStyle.borderColor = "blue";
+                trStyle.backgroundColor = "rgba(0, 0, 255, 0.05)";
                 break;
 
             case "Rejected":
-                tdStyle.borderColor = "red";
+                trStyle.borderColor = "red";
+                trStyle.backgroundColor = "rgba(255, 0, 0, 0.05)";
                 break;
 
             case "Accepted":
-                tdStyle.borderColor = "green";
+                trStyle.borderColor = "green";
+                trStyle.backgroundColor = "rgba(0, 255, 0, 0.05)";
                 break;
 
             case "Complete":
-                tdStyle.borderColor = "green";
+                trStyle.borderColor = "green";
+                trStyle.backgroundColor = "rgba(0, 255, 0, 0.05)";
                 break;
 
             default:
                 break;
         }
 
-        let tagData = {'data-id' : this.state.toggle};
+        let tagData = { 'data-togglestate': this.state.toggle };
+
+
+        let boxDisplay = this.state.toggle ? "block" : "none";
 
         return (
-            <tr style={trStyle} {...tagData} onClick={this.rowInfoToggle.bind(this)}>
-                <td style={tdStyle} >{this.props.buildName}</td>
-                <td style={tdStyle} >{this.props.ownerName}</td>
-                <td style={tdStyle} >{this.props.timeStarted}</td>
-                <td style={tdStyle} >{this.props.currentState}</td>
-                <td style={tdStyle} >{this.props.metrics}</td>
-                <td style={tdStyle} >{this.props.build}</td>
-                <td style={tdStyle} >{this.props.unitTests}</td>
-                <td style={tdStyle} >{this.props.functionalTests}</td>
-            </tr>
+            <ul style={trStyle} {...tagData} onClick={this.rowInfoToggle.bind(this)}>
+                <li>{this.props.buildName}</li>
+                <li>{this.props.ownerName}</li>
+                <li>{this.props.timeStarted}</li>
+                <li>{this.props.currentState}</li>
+                <li>{this.props.metrics}</li>
+                <li>{this.props.build}</li>
+                <li>{this.props.unitTests}</li>
+                <li>{this.props.functionalTests}</li>
+                <div className="infoBoxes">
+                    <InfoBox key={1} display={boxDisplay}/>
+                    <InfoBox key={2} display={boxDisplay}/>
+                    <InfoBox key={3} display={boxDisplay}/>
+                    <InfoBox key={4} display={boxDisplay}/>
+                    <InfoBox key={5} display={boxDisplay}/>
+                </div>
+            </ul>
         );
     }
 }

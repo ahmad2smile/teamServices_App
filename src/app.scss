@@ -1,58 +1,64 @@
 $bodyBgColor:#eee;
-$bodyColor: #fff;
+$componentsBgColor: #fff;
+$trBgColor: $bodyBgColor;
 
-$roboto-font-path: "~materialize-css/fonts/roboto/";
+$bodyColor: #222;
 
-@import "~materialize-css/sass/materialize.scss";
-@import "~materialize-css/sass/components/_navbar.scss";
+$trBorderSize : 2px;
 
 body{
+    font-family: roboto,arial;
     background-color: $bodyBgColor;
     color: $bodyColor;
 }
 
-$tr-borderSize : 2px;
+.teamTable{
+    cursor: context-menu;
+    user-select: none;
+    background: $componentsBgColor;
+    display: block;
+    padding: 0 10px 1px;
+    margin: 20px 20px 0 20px;
 
-table{
-    margin: 40px;
-    padding: 40px;
-    background-color: #fff;
-    border-collapse: separate;
-    border-spacing: 0px 10px;
+    ul{
+        display: flex;
+        justify-content: space-around;
+    }
 
-    th{
-        background-color: #fff;
-    }
-    td,th{
-        border-radius: 0;
-    }
-    tr{
-        line-height: 13px;
-        color: #222;
-        background-color: #eee;
-        td{
-            border: $tr-borderSize solid blue;
-            border-left-width: 0;
-            border-right-width: 0;
-        }
-        td:first-child{
-            border-left-width: $tr-borderSize;
-        }
-        td:last-child{
-            border-right-width: $tr-borderSize;
-        }
-        .colSpan{
-            display: table-row;
-            overflow-wrap: break-word;
-            
-            padding: 2px;
-            column-span: all;
-            background-color: red;
-        }
-    }
-    .newtable{
+    divHead ul{
         margin: 0;
-        padding: 0;
     }
-    
+    divBody ul:first-child{
+        margin-top: 0;
+    }
+
+    divBody ul{
+        position: relative;
+        background: $trBgColor;
+        border: $trBorderSize solid gray;
+    }
+
+    .infoBoxes{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        position: absolute;
+        right: 10px;
+        bottom: 20px;
+    }
+
+    li{
+        display: inline-block;
+        text-align: center;
+        width: 150px;
+        padding: 10px;
+    }
+
+    li:first-child{
+        text-align: left;
+    }
+
+    li:first-child,li:nth-child(3){
+        width: 270px;
+    }
 }

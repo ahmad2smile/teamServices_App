@@ -28,24 +28,24 @@ class Table extends Component {
         }
         
         return (
-            <table className="centered teamTable">
-                <thead>
-                    <tr>
-                        <th>ChangeList / Build</th>
-                        <th>Owner</th>
-                        <th>Time Started</th>
-                        <th>State</th>
-                        <th>Metrics</th>
-                        <th>Build</th>
-                        <th>Unit Test</th>
-                        <th>Functional Test</th>
-                    </tr>
-                </thead>
+            <divTable className="teamTable">
+                <divHead>
+                    <ul>
+                        <li>ChangeList / Build</li>
+                        <li>Owner</li>
+                        <li>Time Started</li>
+                        <li>State</li>
+                        <li>Metrics</li>
+                        <li>Build</li>
+                        <li>Unit Test</li>
+                        <li>Functional Test</li>
+                    </ul>
+                </divHead>
 
-                <tbody>
+                <divBody>
                     {TRows}
-                </tbody>
-            </table>
+                </divBody>
+            </divTable>
         );
     }
 }
